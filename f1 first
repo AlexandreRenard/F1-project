@@ -1,0 +1,15 @@
+cd ~/path/to/formula1_python
+pip install virtualenv
+virtualenv venv
+source venv/bin/activate
+pip install fastf1
+pip install notebook
+jupyter-notebook
+
+import fastf1 as ff1
+import pandas as pd
+
+ff1.Cache.enable_cache('cache') 
+
+quali = ff1.get_session(2021, 'Turkey', 'Q')
+laps = quali.load_laps(with_telemetry=True)
